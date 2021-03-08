@@ -3,6 +3,9 @@ package plateau;
 import java.util.ArrayList;
 
 import plateau.cartes.Carte;
+import plateau.cartes.Soigneur;
+import plateau.cartes.Guerrier;
+import plateau.cartes.Terrain;
 
 public class Jeu {
 	private ArrayList<Carte> jeu;
@@ -19,9 +22,18 @@ public class Jeu {
 		return nbCartesMax;
 	}
 	
-	public void piocher() {
+	public void piocher(String type) {
 		if(jeu.size() < nbCartesMax) {
-			jeu.add(new Carte());
+			if(type == "Soigneur") {
+				jeu.add(new Soigneur());
+			}
+			else if(type == "Guerrier") {
+				jeu.add(new Guerrier());
+			}
+			else {
+				jeu.add(new Terrain());
+			}
+			
 		}else {
 			System.out.println("Jeu de cartes FULL");
 		}
